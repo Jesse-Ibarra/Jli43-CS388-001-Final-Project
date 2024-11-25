@@ -21,7 +21,7 @@ Mobile App Dev - App Brainstorming Example
 3. Event Matchmaker App
 
 ## New App Ideas - Evaluate and Categorize
-1. Student Behavior Tracker
+1. Student Behavior Tracker (CHOSEN IDEA)
    - **Description**: Allows people to journal ideas, thoughts, etc. Also helps jot down goals, mark important dates/events and track progress to whatever goal they have.
    - **Mobile:** The app being mobile is essential as the users should be able to make updates to their profile from anywhere and the journal feature will include the ability to upload images.
    - **Story:** Provides the users with a place to journal and track goals with a gamification incentive to improve peoples lives.
