@@ -82,8 +82,6 @@ A journaling and goal-tracking app that allows users to record thoughts, set goa
 - **From Profile Screen**  
   - Update user settings → Return to Home.
 
----
+#### Low-Fidelity Wireframe images
+![20241125_200208](https://github.com/user-attachments/assets/d4813519-0629-4559-87c4-18f097c173b9)
 
-## GitHub Organization
-1. Create a GitHub organization named **StudentBehaviorTracker** (or any working name).
-2. Initialize a repository with a README.md file.
