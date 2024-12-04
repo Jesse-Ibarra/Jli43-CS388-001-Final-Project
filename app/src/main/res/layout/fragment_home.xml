@@ -1,0 +1,39 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Most Recent Journal Entry Section -->
+    <TextView
+        android:id="@+id/textViewMostRecentJournal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Most Recent Journal Entry:"
+        android:textStyle="bold"
+        android:paddingBottom="8dp" />
+
+    <TextView
+        android:id="@+id/textViewJournalEntry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No journal entry yet."
+        android:paddingBottom="16dp" />
+
+    <!-- Nearest Event Section -->
+    <TextView
+        android:id="@+id/textViewNearestEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nearest Event:"
+        android:textStyle="bold"
+        android:paddingBottom="8dp" />
+
+    <TextView
+        android:id="@+id/textViewEventDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No upcoming events."
+        android:paddingBottom="16dp" />
+</LinearLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/nav_home">
+
+<fragment
+    android:id="@+id/nav_home"
+    android:name="com.example.journalingapp.HomeFragment"
+    android:label="Home"
+    tools:layout="@layout/fragment_home" />
+
+<fragment
+    android:id="@+id/nav_journal"
+    android:name="com.example.journalingapp.JournalFragment"
+    android:label="Journal"
+    tools:layout="@layout/fragment_journal" />
+
+<fragment
+    android:id="@+id/nav_calendar"
+    android:name="com.example.journalingapp.CalendarFragment"
+    android:label="Calendar"
+    tools:layout="@layout/fragment_calendar" />
+    </navigation>
