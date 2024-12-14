@@ -15,6 +15,13 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        // Pass the API key as a BuildConfig field
+        buildConfigField(
+            "String",
+            "THEY_SAID_SO_API_KEY",
+            "\"WBnkO4UV7uM6bf0CxA1AAiYVozD8d9BLZWL7Z31P97b9c43a\""
+        )
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -26,6 +33,10 @@ android {
                 "proguard-rules.pro"
             )
         }
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     compileOptions {
@@ -56,13 +67,19 @@ dependencies {
         exclude(group = "com.android.support") // Exclude conflicting support libraries
     }
 
+
     // Navigation Components
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
+    // Retrofit for API calls
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
     // Room Dependencies
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.ui.text.android)
     kapt(libs.androidx.room.compiler)
 
     // Test Dependencies

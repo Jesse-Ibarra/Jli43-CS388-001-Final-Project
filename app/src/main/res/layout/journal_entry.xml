@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="?attr/backgroundColor">
 
     <!-- EditText for Writing Journal Entry -->
     <EditText
@@ -15,6 +16,10 @@
         android:inputType="textMultiLine"
         android:gravity="top|start"
         android:minLines="4"
+        android:background="@drawable/edittext_background"
+        android:textColorHint="@color/gray"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="16sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,6 +31,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save Entry"
+        android:textColor="?attr/colorOnPrimary"
+        android:backgroundTint="?attr/colorPrimary"
+        android:textSize="16sp"
+        style="?attr/buttonStyle"
         app:layout_constraintTop_toBottomOf="@id/editText_journal_entry"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView_journal_entries" />

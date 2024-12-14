@@ -5,92 +5,89 @@ The **Journaling and Goal-Tracking App** is designed to help users organize thei
 
 ---
 
-## Features Implemented (V1)
+## Features Implemented (V2)
 
 ### Home Screen
 - Displays:
     - The **most recent journal entry**, allowing users to quickly review their latest thoughts.
     - The **nearest upcoming event**, helping users stay informed about what's next.
+    - A **daily motivational quote**, which includes a default quote in case of network failure.
 
 ### Journal Screen
 - **Add and view journal entries**:
     - Users can write, save, and review journal entries through an integrated **RecyclerView** for better organization.
     - Entries are stored in the app's database for persistence.
+    - Added functionality to display timestamps for each journal entry.
 
 ### Calendar Screen
 - **Event management**:
     - Add and view events directly on the calendar.
     - The calendar highlights days with events, making it easy to visualize important dates.
-- Days without events remain unhighlighted to maintain a clean interface.
+    - **Dark mode compatibility** for better user experience in low-light environments.
+
+### Profile Screen
+- **User customization**:
+    - Users can upload and view their profile pictures.
+    - Editable personal information, such as name, email, phone number, and address.
+    - Fields for social media handles to personalize the experience.
 
 ### Core Features
 - **Fragment-based Navigation**:
-    - Seamlessly navigate between Home, Journal, and Calendar using a bottom navigation bar.
+    - Seamlessly navigate between Home, Journal, Calendar, and Profile using a bottom navigation bar.
 - **Room Database Integration**:
-    - Journal entries and events are stored locally, ensuring persistence across app sessions.
+    - Journal entries, events, and user profile data are stored locally, ensuring persistence across app sessions.
 - **Custom Calendar Integration**:
     - Implemented a calendar that visually differentiates days with events.
+- **Material Design Styling**:
+    - Enhanced UI with consistent themes, dark mode support, and visually appealing layouts.
 
 ---
 
-## Planned Features (V2+)
 
-### Goal Tracker (Future Release)
-- Users will be able to create and track progress toward goals.
-- Visual progress bars to show goal completion status.
-
-### Gamification Mechanics
-- **Progress tracking**:
-    - Points for journaling, completing goals, and marking events.
-- **Rewards and streaks**:
-    - Earn rewards for daily journaling and achieving milestones.
-
-### Camera Functionality
-- Upload images for journal entries.
-- Add profile pictures for customization.
-
-### Enhanced Calendar
-- Display milestones and deadlines for goals.
-
----
-
-## User Journey
-
-### Current Flow (V1):
+### Current Flow (V2):
 1. **Home Screen**:
-    - View the most recent journal entry and nearest upcoming event.
+    - View the most recent journal entry, nearest upcoming event, and a daily motivational quote.
 2. **Journal Screen**:
     - Add new entries or view previous ones in a structured list.
 3. **Calendar Screen**:
     - Add events and view marked dates in a clean, interactive calendar.
+4. **Profile Screen**:
+    - Customize profile details, including profile picture and personal information.
 
 ---
 
 ## Technologies Used
 - **Kotlin** for all development.
-- **Room Database** for journal and event persistence.
+- **Room Database** for journal, event, and profile data persistence.
 - **RecyclerView** for displaying journal entries.
 - **MaterialCalendarView** for the interactive calendar.
+- **Material Design Components** for consistent and appealing UI.
 
 ---
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-
-- <img src='assets/Walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+- <img src='assets/Walkthrough2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with ...
 - GIF created with [CloudConvert](https://cloudconvert.com/)
 
 ---
 
+## Demo Day Prep Video
+Watch the video [here](insert-link-to-video).
 
+---
 ### Challenges
 1. **Database Migration**:
     - Transitioning from a basic schema to one with renamed columns required careful handling of Room migrations.
 2. **Calendar Integration**:
     - Customizing the calendar to highlight event days while ignoring days outside the current month took additional effort.
+3. **Dark Mode Styling**:
+    - Ensuring all UI elements adapted correctly to dark mode required thorough testing and theme adjustments.
+4. **Default Quote Implementation**:
+    - Handling network errors and displaying a fallback quote seamlessly.
 
 ---
 

@@ -17,9 +17,9 @@
         app:title="Journaling App"
         app:titleTextColor="@android:color/white" />
 
-    <!-- NavHostFragment -->
+    <!-- Fragment Container -->
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/nav_host_fragment"
+        android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
@@ -39,4 +39,5 @@
         app:labelVisibilityMode="unlabeled"
         app:itemIconSize="24dp"
         app:background="?attr/colorSurface" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

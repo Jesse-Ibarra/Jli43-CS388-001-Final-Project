@@ -1,0 +1,93 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="?attr/backgroundColor">
+
+    <!-- Input for goal title -->
+    <EditText
+        android:id="@+id/etGoalTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter goal title"
+        android:textSize="18sp"
+        android:padding="8dp"
+        android:background="@drawable/edittext_background"
+        android:textColorHint="@android:color/darker_gray"
+        android:textColor="@android:color/white" />
+
+    <!-- Input for goal description -->
+    <EditText
+        android:id="@+id/etGoalDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter goal description"
+        android:inputType="textMultiLine"
+        android:lines="3"
+        android:gravity="top"
+        android:padding="8dp"
+        android:background="@drawable/edittext_background"
+        android:textSize="18sp"
+        android:textColorHint="@android:color/darker_gray"
+        android:textColor="@android:color/white" />
+
+    <!-- Input for goal deadline -->
+    <TextView
+        android:id="@+id/tvSelectedDeadline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No Deadline Selected"
+        android:textSize="16sp"
+        android:layout_marginTop="4dp"
+        android:textColor="@android:color/darker_gray" />
+
+    <Button
+        android:id="@+id/btnPickDeadline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pick Deadline"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@android:color/white" />
+
+    <!-- Button container -->
+    <LinearLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:gravity="center">
+
+        <!-- Cancel Button -->
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cancel"
+            android:textSize="18sp"
+            android:padding="8dp"
+            android:backgroundTint="@color/red"
+            android:textColor="@android:color/white" />
+
+        <!-- Spacer -->
+        <View
+            android:layout_width="16dp"
+            android:layout_height="match_parent" />
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/btnSaveGoal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Save"
+            android:textSize="18sp"
+            android:padding="8dp"
+            android:backgroundTint="@color/green"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+</LinearLayout>

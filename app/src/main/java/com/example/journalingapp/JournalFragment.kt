@@ -7,9 +7,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.journalingapp.databinding.FragmentJournalBinding
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class JournalFragment : Fragment() {
 
@@ -29,7 +32,20 @@ class JournalFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         database = JournalDatabase.getDatabase(requireContext())
-        adapter = JournalAdapter()
+        adapter = JournalAdapter { journalEntry ->
+            // Navigate to JournalEntryDetailFragment with arguments
+            val bundle = Bundle().apply {
+                putString("title", journalEntry.title)
+                putString("content", journalEntry.content)
+                putString(
+                    "date",
+                    SimpleDateFormat("dd MMM yyyy", Locale.getDefault()).format(
+                        journalEntry.date
+                    )
+                )
+            }
+            findNavController().navigate(R.id.action_journal_to_detail, bundle)
+        }
 
         // Set up RecyclerView
         binding.recyclerViewJournal.layoutManager = LinearLayoutManager(requireContext())
@@ -49,7 +65,11 @@ class JournalFragment : Fragment() {
                 binding.editTextTitle.text.clear()
                 binding.editTextContent.text.clear()
             } else {
-                Toast.makeText(requireContext(), "Please enter both title and content", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Please enter both title and content",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }

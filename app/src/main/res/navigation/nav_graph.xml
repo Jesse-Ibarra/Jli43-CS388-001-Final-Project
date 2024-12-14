@@ -4,21 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@id/nav_home">
 
-<fragment
-    android:id="@+id/nav_home"
-    android:name="com.example.journalingapp.HomeFragment"
-    android:label="Home"
-    tools:layout="@layout/fragment_home" />
+    <!-- Home Fragment -->
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.journalingapp.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
 
-<fragment
-    android:id="@+id/nav_journal"
-    android:name="com.example.journalingapp.JournalFragment"
-    android:label="Journal"
-    tools:layout="@layout/fragment_journal" />
+    <!-- Journal Fragment -->
+    <fragment
+        android:id="@+id/nav_journal"
+        android:name="com.example.journalingapp.JournalFragment"
+        android:label="Journal"
+        tools:layout="@layout/fragment_journal">
+        <action
+            android:id="@+id/action_journal_to_detail"
+            app:destination="@id/nav_journal_entry_detail" />
+    </fragment>
 
-<fragment
-    android:id="@+id/nav_calendar"
-    android:name="com.example.journalingapp.CalendarFragment"
-    android:label="Calendar"
-    tools:layout="@layout/fragment_calendar" />
-    </navigation>
+    <!-- Journal Entry Detail Fragment -->
+    <fragment
+        android:id="@+id/nav_journal_entry_detail"
+        android:name="com.example.journalingapp.JournalEntryDetailFragment"
+        android:label="Journal Entry Detail"
+        tools:layout="@layout/fragment_journal_entry_detail" />
+
+    <!-- Calendar Fragment -->
+    <fragment
+        android:id="@+id/nav_calendar"
+        android:name="com.example.journalingapp.CalendarFragment"
+        android:label="Calendar"
+        tools:layout="@layout/fragment_calendar" />
+
+    <!-- Goals Fragment -->
+    <fragment
+        android:id="@+id/nav_goals"
+        android:name="com.example.journalingapp.GoalFragment"
+        android:label="Goals"
+        tools:layout="@layout/fragment_goal" />
+
+    <!-- Profile Fragment -->
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.journalingapp.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>

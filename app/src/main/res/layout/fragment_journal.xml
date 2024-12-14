@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="?attr/backgroundColor">
 
     <!-- Title Input -->
     <EditText
@@ -11,7 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Title"
-        android:inputType="text" />
+        android:textSize="18sp"
+        android:padding="8dp"
+        android:background="@drawable/edittext_background"
+        android:textColorHint="@android:color/darker_gray"
+        android:textColor="@android:color/white" />
 
     <!-- Content Input -->
     <EditText
@@ -20,7 +25,12 @@
         android:layout_height="wrap_content"
         android:hint="Enter Content"
         android:inputType="textMultiLine"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:background="@drawable/edittext_background"
+        android:textSize="18sp"
+        android:textColorHint="@android:color/darker_gray"
+        android:textColor="@android:color/white" />
 
     <!-- Add Entry Button -->
     <Button
@@ -28,7 +38,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Entry"
-        android:layout_marginTop="8dp" />
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@android:color/white" />
 
     <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView

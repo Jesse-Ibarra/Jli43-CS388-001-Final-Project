@@ -7,7 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.journalingapp.R
 
-class JournalAdapter : RecyclerView.Adapter<JournalAdapter.JournalViewHolder>() {
+class JournalAdapter(
+    private val onItemClick: (JournalEntry) -> Unit // Pass a lambda function for handling item clicks
+) : RecyclerView.Adapter<JournalAdapter.JournalViewHolder>() {
 
     private val entries = mutableListOf<JournalEntry>()
 
@@ -19,21 +21,32 @@ class JournalAdapter : RecyclerView.Adapter<JournalAdapter.JournalViewHolder>() 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JournalViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_journal_entry, parent, false)
-        return JournalViewHolder(view)
+        return JournalViewHolder(view, onItemClick)
     }
 
     override fun onBindViewHolder(holder: JournalViewHolder, position: Int) {
         val entry = entries[position]
-        holder.title.text = entry.title
-        holder.content.text = entry.content
-        holder.timestamp.text = java.text.DateFormat.getDateTimeInstance().format(entry.date)
+        holder.bind(entry)
     }
 
     override fun getItemCount(): Int = entries.size
 
-    class JournalViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val title: TextView = itemView.findViewById(R.id.journal_title)
-        val content: TextView = itemView.findViewById(R.id.journal_content)
-        val timestamp: TextView = itemView.findViewById(R.id.journal_timestamp)
+    class JournalViewHolder(itemView: View, private val onItemClick: (JournalEntry) -> Unit) :
+        RecyclerView.ViewHolder(itemView) {
+
+        private val title: TextView = itemView.findViewById(R.id.journal_title)
+        private val content: TextView = itemView.findViewById(R.id.journal_content)
+        private val timestamp: TextView = itemView.findViewById(R.id.journal_timestamp)
+
+        fun bind(entry: JournalEntry) {
+            title.text = entry.title
+            content.text = entry.content
+            timestamp.text = java.text.DateFormat.getDateTimeInstance().format(entry.date)
+
+            // Set click listener to trigger the lambda with the current entry
+            itemView.setOnClickListener {
+                onItemClick(entry)
+            }
+        }
     }
 }

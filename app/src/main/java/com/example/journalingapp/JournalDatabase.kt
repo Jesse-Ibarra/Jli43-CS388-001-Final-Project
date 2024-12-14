@@ -7,17 +7,18 @@ import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
-@Database(entities = [JournalEntry::class, EventEntry::class], version = 3)
+@Database(entities = [JournalEntry::class, EventEntry::class, Goal::class], version = 4)
 abstract class JournalDatabase : RoomDatabase() {
 
     abstract fun journalEntryDao(): JournalEntryDao
     abstract fun eventEntryDao(): EventEntryDao
+    abstract fun goalDao(): GoalDao
 
     companion object {
         @Volatile
         private var INSTANCE: JournalDatabase? = null
 
-        // Define the migration object to handle schema changes from version 1 to 2
+        // Migration from version 1 to 2
         val MIGRATION_1_2 = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 // Step 1: Create a new table with the updated schema
@@ -49,6 +50,24 @@ abstract class JournalDatabase : RoomDatabase() {
             }
         }
 
+        // Migration from version 3 to 4 to add the Goals table
+        val MIGRATION_3_4 = object : Migration(3, 4) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS goals (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                        title TEXT NOT NULL,
+                        description TEXT,
+                        deadline TEXT,
+                        progress INTEGER NOT NULL DEFAULT 0,
+                        isCompleted INTEGER NOT NULL DEFAULT 0
+                    )
+                    """.trimIndent()
+                )
+            }
+        }
+
         fun getDatabase(context: Context): JournalDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
@@ -56,7 +75,7 @@ abstract class JournalDatabase : RoomDatabase() {
                     JournalDatabase::class.java,
                     "journal_database"
                 )
-                    .addMigrations(MIGRATION_1_2) // Add the migration here
+                    .addMigrations(MIGRATION_1_2, MIGRATION_3_4) // Add new migration here
                     .build()
                 INSTANCE = instance
                 instance
