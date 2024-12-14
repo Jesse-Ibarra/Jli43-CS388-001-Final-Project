@@ -76,7 +76,7 @@ GIF created with ...
 ---
 
 ## Demo Day Prep Video
-Watch the video [here](insert-link-to-video).
+Watch the video [here](https://www.youtube.com/watch?v=cUQEwoLuQPU).
 
 ---
 ### Challenges
